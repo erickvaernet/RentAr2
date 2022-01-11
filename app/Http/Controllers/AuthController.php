@@ -88,8 +88,8 @@ class AuthController extends Controller
     {
         $validator= Validator::make($request->all(),[
             'name'=>'required',
-            'email'=>'required|max:100|string|email|unique:user',
-            'pasword'=>'required|min:6|confirmed',    
+            'email'=>'required|max:100|string|email|unique:users',
+            'password'=>'required|min:6|confirmed',    
         ]);
 
         if($validator->fails()){
