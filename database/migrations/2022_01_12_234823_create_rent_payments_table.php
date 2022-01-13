@@ -15,7 +15,7 @@ class CreateRentPaymentsTable extends Migration
     {
         Schema::create('rent_payments', function (Blueprint $table) {
             $table->id();
-            $table->date("date");
+            $table->date("date")->Nullable();
             $table->decimal("value",10,2);
             $table->foreignId("rental_id")->constrained("rentals");
             $table->timestamps();

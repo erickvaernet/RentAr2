@@ -16,7 +16,7 @@ class CreatePropertiesTable extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->string("apartment",30);
-            $table->string("description",1000);
+            $table->string("description",1000)->Nullable();
             $table->tinyInteger("rooms");
             $table->tinyInteger("bedrooms");
             $table->tinyInteger("bathrooms");
@@ -24,14 +24,14 @@ class CreatePropertiesTable extends Migration
             $table->boolean("pool");
             $table->boolean("pets");
             $table->boolean("expenses");
-            $table->integer("m2");
+            $table->integer("m2")->Nullable();
             $table->boolean("published");            
             $table->decimal('price', $precision = 10, $scale = 2);
             $table->foreignId("property_type_id")->constrained("property_types");
-            $table->foreignId("group_id")->constrained("groups");
+            $table->foreignId("group_id")->constrained("groups")->Nullable();
             $table->foreignId("address_id")->constrained("addresses");
             $table->foreignId("real_estate_id")->constrained("real_estate");
-            $table->foreignId("people_group_id")->constrained("people_groups");
+            $table->foreignId("people_group_id")->constrained("people_groups")->Nullable();
             $table->timestamps();
         });
     }

@@ -15,7 +15,7 @@ class CreateGroupsTable extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->string("name",80);
+            $table->string("name",80)->Nullable();
             $table->foreignId('people_group_id')->constrained("people_groups");
             $table->timestamps();
         });

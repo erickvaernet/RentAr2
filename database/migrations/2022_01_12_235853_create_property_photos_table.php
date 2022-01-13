@@ -16,7 +16,7 @@ class CreatePropertyPhotosTable extends Migration
         Schema::create('property_photos', function (Blueprint $table) {
             $table->id();
             $table->string("url",1000);
-            $table->string("name",80);
+            $table->string("name",80)->Nullable();
             $table->foreignId("property_id")->constrained("properties");
             $table->timestamps();
         });

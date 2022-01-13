@@ -17,9 +17,10 @@ class CreateTenantTable extends Migration
             $table->id();            
             $table->string('name');
             $table->string('last_name');
-            $table->integer('dni');      
+            $table->integer('dni')->Nullable();      
             $table->date("entry_date");
-            $table->date("departure_date");
+            $table->date("end_of_contract");
+            $table->date("departure_date")->Nullable();
             $table->foreignId("property_id")->constrained("property");
             $table->foreignId("people_group_id")->constrained("people_groups");
             $table->timestamps();

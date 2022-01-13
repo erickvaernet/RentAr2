@@ -15,7 +15,8 @@ class CreateServicePaymentsTable extends Migration
     {
         Schema::create('service_payments', function (Blueprint $table) {
             $table->id();
-            $table->date("date");
+            $table->date("date")->nullable();
+            $table->string("period");
             $table->decimal("value",10,2);
             $table->boolean("debt");
             $table->foreignId("service_id")->constrained("services");

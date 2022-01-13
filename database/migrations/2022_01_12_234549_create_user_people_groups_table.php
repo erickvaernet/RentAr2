@@ -15,7 +15,7 @@ class CreateUserPeopleGroupsTable extends Migration
     {
         Schema::create('users_x_people_groups', function (Blueprint $table) {
             $table->id();
-            $table->string("name",80);
+            $table->string("name",80)->Nullable();
             $table->foreignId("people_group_id")->constrained("people_groups");
             $table->foreignId("user_id")->constrained("users");
             $table->timestamps();

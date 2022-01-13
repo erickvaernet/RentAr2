@@ -17,7 +17,7 @@ class CreateRealEstateTable extends Migration
             $table->id();
             $table->string("name",80);
             $table->string("phone",80)->nullable();
-            $table->foreignId("address_id")->constrained("addresses");
+            $table->foreignId("address_id")->constrained("addresses")->Nullable();
             $table->foreignId("user_id")->constrained("users")->nullable();
             $table->timestamps();
         });
