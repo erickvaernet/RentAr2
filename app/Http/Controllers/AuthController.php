@@ -87,9 +87,10 @@ class AuthController extends Controller
     protected function register(Request $request)
     {
         $validator= Validator::make($request->all(),[
-            'name'=>'required',
+            'name'=>'required|max:80',
+            'last_name'=>'required|max:80',
             'email'=>'required|max:100|string|email|unique:users',
-            'password'=>'required|min:6|confirmed',    
+            'password'=>'required|min:6|max:20|confirmed',    
         ]);
 
         if($validator->fails()){
