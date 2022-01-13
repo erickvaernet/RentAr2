@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTenantTable extends Migration
+class CreateTenantsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -21,7 +21,7 @@ class CreateTenantTable extends Migration
             $table->date("entry_date");
             $table->date("end_of_contract");
             $table->date("departure_date")->Nullable();
-            $table->foreignId("property_id")->constrained("property");
+            $table->foreignId("property_id")->constrained("properties");
             $table->foreignId("people_group_id")->constrained("people_groups");
             $table->timestamps();
         });

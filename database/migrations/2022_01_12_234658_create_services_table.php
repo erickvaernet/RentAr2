@@ -17,7 +17,7 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->string("name",80);
             $table->string("client_number",20)->Nullable();            
-            $table->foreignId("property_id")->constrained("property");
+            $table->foreignId("property_id")->constrained("properties");
             $table->timestamps();
         });
     }

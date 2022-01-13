@@ -19,7 +19,7 @@ class CreateBuildingRepairsTable extends Migration
             $table->string("description",3000);
             $table->date("date");
             $table->decimal("value",8,2);
-            $table->foreignId("property_id")->constrained("property");
+            $table->foreignId("property_id")->constrained("properties");
             $table->timestamps();
         });
     }
