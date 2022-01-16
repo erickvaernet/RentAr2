@@ -20,8 +20,6 @@ class real_estate extends Model
         'phone'
     ];
 
-
-
     public function address(){
         return $this->hasOne(Address::class, 'address_id');
     }
