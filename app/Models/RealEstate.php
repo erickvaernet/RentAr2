@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use PhpParser\Node\Expr\FuncCall;
 
-class State extends Model
+class RealEstate extends Model
 {
     use HasFactory;
 
@@ -15,6 +16,12 @@ class State extends Model
      * @var array<int, string>
      */
     protected $fillable =[
-        'name'
+        'name',
+        'phone'
     ];
+
+    public function address(){
+        return $this->hasOne(Address::class, 'address_id');
+    }
+    
 }

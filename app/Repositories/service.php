@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class State extends Model
+class service extends Model
 {
     use HasFactory;
 
@@ -15,6 +15,7 @@ class State extends Model
      * @var array<int, string>
      */
     protected $fillable =[
-        'name'
+        'name',
+        'client_number'
     ];
 }
