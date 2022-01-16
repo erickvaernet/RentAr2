@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class rent_payment extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable =[
+        'date',
+        'value',
+        'verified'
+    ];
 }

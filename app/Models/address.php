@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class address extends Model
 {
     use HasFactory;
+
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'longitude',
+        'latitude',
+        'street',
+        'neighborhood',
+        'number',
+        'block',        
+    ];
 }
