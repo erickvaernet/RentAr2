@@ -32,11 +32,11 @@ export const Login=()=>{
     const validationRules={
         email: { required:"Este campo es requerido",
                  minLength:{value:6, message:"Minimo 6 caracteres"}, 
-                 maxLength:{value:6, message:"Máximo 20 caracteres"},}
+                 maxLength:{value:100, message:"Máximo 100 caracteres"},}
         ,
         password: { required:"Este campo es requerido",
                     minLength:{value:6, message:"Minimo 6 caracteres"}, 
-                    maxLength:{value:6, message:"Máximo 20 caracteres"},}
+                    maxLength:{value:20, message:"Máximo 20 caracteres"},}
 
     }
 
@@ -59,10 +59,12 @@ export const Login=()=>{
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-              <Input name="email" register={register} errors={errors.email} rules={validationRules.email} margin="normal" />
-              <Input name="password" register={register} errors={errors.password} rules={validationRules.password}   />
-              <MUIButton variant="contained" type="submit" fullWidth sx={{ mt: 3, mb: 2 }}>Enviar</MUIButton>
+            <Box component="form" onSubmit={handleSubmit((data)=>console.log(data))} noValidate sx={{ mt: 1 }}>
+              
+                <Input name="email" register={register} errors={errors.email} rules={validationRules.email} margin="normal" />
+                <Input name="password" register={register} errors={errors.password} rules={validationRules.password}   />
+                <MUIButton variant="contained" type="submit" fullWidth sx={{ mt: 3, mb: 2 }}>Enviar</MUIButton>
+              
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
