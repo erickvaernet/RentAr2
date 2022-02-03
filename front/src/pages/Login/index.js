@@ -15,8 +15,8 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="https://ar.linkedin.com/in/erick-vaernet-8b4645195?trk=public_profile_browsemap">
+      Erick Adriel Vaernet
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -37,10 +37,10 @@ export const Login=()=>{
         password: { required:"Este campo es requerido",
                     minLength:{value:6, message:"Minimo 6 caracteres"}, 
                     maxLength:{value:20, message:"Máximo 20 caracteres"},}
-
     }
 
-    console.log(errors)
+    
+    
     return(
         <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
@@ -57,23 +57,18 @@ export const Login=()=>{
             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+              Iniciar Sesión
             </Typography>
-            <Box component="form" onSubmit={handleSubmit((data)=>console.log(data))} noValidate sx={{ mt: 1 }}>
+            <Box component="form" onSubmit={handleSubmit(data=>console.log(data))} sx={{ mt: 1 }} >
               
-                <Input name="email" register={register} errors={errors.email} rules={validationRules.email} margin="normal" />
-                <Input name="password" register={register} errors={errors.password} rules={validationRules.password}   />
+                <Input name="email" register={register} errors={errors.email} error={Boolean(errors.email)} rules={validationRules.email} type="email"/>
+                <Input name="password" register={register} errors={errors.password} error={Boolean(errors.password)} rules={validationRules.password} type="password"  />
                 <MUIButton variant="contained" type="submit" fullWidth sx={{ mt: 3, mb: 2 }}>Enviar</MUIButton>
               
-              <Grid container>
+              <Grid container textAlign="center">
                 <Grid item xs>
                   <Link href="#" variant="body2">
                     Forgot password?
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
               </Grid>

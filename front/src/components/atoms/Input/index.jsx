@@ -6,6 +6,7 @@ export function Input({
   register,
   rules=null,
   error,
+  errors,
   label = name,
   variant = "outlined",
   margin="normal",
@@ -20,11 +21,12 @@ export function Input({
         variant={variant}
         {...register(name,rules)}
         error={error}
-        helperText={error ? error.message : null}
+        helperText={errors?.message}
         sx={sx}
         margin={margin}
         fullWidth={fullWidth}
         required={required}
+        {...props}
       />
     );  
 }
