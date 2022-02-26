@@ -13,7 +13,7 @@ async function JSONHttpRequest(method,url,body) {
      return callBack? callBack(data): data;
  }
  
- const request={
+export const request = {
      
   post: async(url,bodyContent,callBack=false)=>{
      try{
