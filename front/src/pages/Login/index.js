@@ -28,8 +28,11 @@ function Copyright(props) {
 const theme = createTheme();
 
 
-export const Login=()=>{
+export const Login=()=>{  
+    //Hook parte de react-forms
     const {register,handleSubmit, formState:{errors}} = useForm();
+
+    //Validaciones para el inicio de sesión
     const validationRules={
         email: { required:"Este campo es requerido",
                  minLength:{value:6, message:"Minimo 6 caracteres"}, 
@@ -40,7 +43,10 @@ export const Login=()=>{
                     maxLength:{value:20, message:"Máximo 20 caracteres"},}
     }
 
-    
+    //Lo que sucede al apretar "enviar" en el formulario:
+    const onSubmit= (formData)=>{
+      request.post('https://jsonplaceholder.typicode.com/posts',formData,(result)=>{console.log(result)});
+    }
     
     return(
         <ThemeProvider theme={theme}>
@@ -60,11 +66,11 @@ export const Login=()=>{
             <Typography component="h1" variant="h5">
               Iniciar Sesión
             </Typography>
-            <Box component="form" onSubmit={handleSubmit(data=>console.log(data))} sx={{ mt: 1 }} >
+            <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ mt: 1 }} >
               
-                <Input name="email" register={register} errors={errors.email} error={Boolean(errors.email)} rules={validationRules.email} type="email"/>
-                <Input name="password" register={register} errors={errors.password} error={Boolean(errors.password)} rules={validationRules.password} type="password"  />
-                <MUIButton variant="contained" type="submit" fullWidth sx={{ mt: 3, mb: 2 }}>Enviar</MUIButton>
+              <Input name="email" register={register} errors={errors.email} error={Boolean(errors.email)} rules={validationRules.email} type="email"/>
+              <Input name="password" register={register} errors={errors.password} error={Boolean(errors.password)} rules={validationRules.password} type="password"  />
+              <MUIButton variant="contained" type="submit" fullWidth sx={{ mt: 3, mb: 2 }}>Enviar</MUIButton>
               
               <Grid container textAlign="center">
                 <Grid item xs>
@@ -73,6 +79,7 @@ export const Login=()=>{
                   </Link>
                 </Grid>
               </Grid>
+
             </Box>
           </Box>
           <Copyright sx={{ mt: 8, mb: 4 }} />
