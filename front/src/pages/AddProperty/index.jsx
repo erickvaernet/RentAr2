@@ -1,4 +1,5 @@
 import { Box, Typography,Button, Grid, Link, Container, InputLabel, Select, MenuItem, RadioGroup, FormControlLabel, Radio, FormLabel, Checkbox } from '@mui/material'
+import { border, borderRadius } from '@mui/system';
 import React from 'react'
 import { useForm } from "react-hook-form";
 import {Input} from "../../components/atoms/Input"
@@ -51,7 +52,13 @@ export const AddProperty = () => {
                 </Select>
             </Box>
 
+            
             <Input name="apartment" label="Departamento" variant='outlined' register={register} errors={errors.email} error={Boolean(errors.email)} rules={validationRules.email} type="text"/>
+            <Box border={"black solid 1px"} borderRadius={1} padding={1} >
+            <FormLabel id="address">*Dirección</FormLabel>
+                <Input name="street" label="Calle" variant='outlined' register={register} errors={errors.email} error={Boolean(errors.email)} rules={validationRules.email} type="text"/>
+                <Input name="street-number" label="Numero (altura)" variant='outlined' register={register} errors={errors.email} error={Boolean(errors.email)} rules={validationRules.email} type="text"/>
+            </Box>
             <Input name="description" label="Descripción" multiline rows={4} variant='filled' register={register} errors={errors.password} error={Boolean(errors.password)} rules={validationRules.password} type="text"/>
             <Input name="rooms" fullWidth="false" label="Número de Habitaciones" variant='outlined' type="number" register={register} errors={errors.email} error={Boolean(errors.email)} rules={validationRules.email}/>
             <Box sx={{display:"flex",flexDirection:"row", wrap:"wrap",justifyContent:"space-between",gap:"5px"}}>
@@ -71,12 +78,13 @@ export const AddProperty = () => {
                         <FormControlLabel value="separados" control={<Radio />} label="Separados" />
                     </RadioGroup>
             </Box>
-            <Box>
+            <Box>    
                 <FormControlLabel control={<Checkbox />} label="Con pileta" />
                 <FormControlLabel control={<Checkbox/>} label="Con garage" />
                 <FormControlLabel control={<Checkbox/>} label="Con patio" />
                 <FormControlLabel control={<Checkbox/>} label="Permite mascotas" />
             </Box>
+
             <Button variant="contained" type="submit" fullWidth sx={{ mt: 3, mb: 2 }}>Enviar</Button>
             
         </Box>
